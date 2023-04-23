@@ -1,0 +1,243 @@
+/* #ff1b6b */
+/* background-image: linear-gradient(to right, #333 90%, transparent 90%, transparent 93%, #333 93%); */
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap");
+*,
+*::after,
+*::before {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   list-style: none;
+   text-transform: capitalize;
+}
+
+body {
+   font-family: "Source Sans Pro", sans-serif;
+}
+
+img {
+   display: block;
+   width: 100%;
+}
+
+
+::-webkit-scrollbar {
+   width: 10px;
+}
+
+::-webkit-scrollbar-track {
+   background-color: #333;
+}
+
+::-webkit-scrollbar-thumb {
+   background-color: #ff1b6b;
+}
+
+.container {
+   margin: auto;
+   padding: 0 10px;
+   width: 100%;
+}
+
+@media (min-width: 576px) {
+   .container {
+      width: 540px;
+   }
+}
+@media (min-width: 768px) {
+   .container {
+      width: 720px;
+   }
+}
+@media (min-width: 992px) {
+   .container {
+      width: 960px;
+   }
+}
+@media (min-width: 1200px) {
+   .container {
+      width: 1140px;
+   }
+}
+@media (min-width: 1400px) {
+   .container {
+      width: 1320px;
+   }
+}
+
+/* <!-- =================== Start Navbar ===================--> */
+.navbar {
+   height: 60px;
+   background-color: #fff;
+   box-shadow: 0 0 5px rgb(0 0 0 / 0.5);
+   display: flex;
+   align-items: center;
+   position: fixed;
+   z-index: 999;
+   top: 0;
+   left: 0;
+   width: 100%;
+}
+
+.navbar  label , .navbar #menu {
+   display: none;
+}
+
+.navbar .container {
+   display: flex;
+   justify-content: space-between;
+}
+
+.navbar .container .logo h2 {
+   color: #ff1b6b;
+   position: relative;
+}
+
+.navbar .container .logo h2::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   inset-inline: -15px;
+   z-index: -1;
+   background: linear-gradient(to right, #333 90%, transparent 90%, transparent 94%, #333 94%);
+   transform: skewX(30deg);
+   will-change: transform;
+}
+
+.navbar .container .nav-menu {
+   display: flex;
+   gap: 10px;
+}
+
+.navbar .container .nav-menu a {
+   color: #ff1b6b;
+}
+/* <!-- =================== End Navbar ===================--> */
+
+/* <!-- =================== Start Layout ===================--> */
+.layout {
+   padding: 70px 0;
+}
+
+.layout .container {
+   display: flex;
+   flex-wrap: wrap;
+
+   gap: 10px;
+}
+
+.layout .container .card {
+   width: calc((100% - 20px) / 3);
+   text-align: center;
+   box-shadow: 0 0 5px rgb(0 0 0 / 0.5);
+   background-color: #fff;
+   border-radius: 10px;
+   overflow: hidden;
+   cursor: pointer;
+   position: relative;
+   z-index: 1;
+}
+
+.layout .container .card::before,
+.layout .container .card::after {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   width: 0;
+   height: 100%;
+   transition: width 1s;
+}
+
+.layout .container .card::before {
+   left: 0;
+   background-color: #09c;
+
+}
+
+.layout .container .card::after {
+   right: 0;
+   background-color: #ff1b6b;
+
+}
+
+
+.layout .container .card:hover::before , .layout .container .card:hover::after {
+   width: 100%;
+}
+
+.layout .container .card .card-body {
+   padding: 10px;
+}
+
+.layout .container .card:nth-child(1) {
+   width: 40%;
+   flex-grow: 1;
+}
+
+.layout .container .card img {
+   height: 250px;
+   object-fit: cover;
+}
+/* <!-- =================== End Layout ===================--> */
+
+/* <!-- =================== Start Media ===================--> */
+/* @media (max-width:1399.98px) {
+
+}
+@media (max-width:1199.98px) {
+
+} */
+@media (max-width:991.98px) {
+   .layout .container .card {
+      width: calc((100% - 10px) / 2);
+   }
+
+   .layout .container .card:nth-child(1)  {
+      width: 100%;
+   }
+}
+@media (max-width:767.98px) {
+   .layout .container .card {
+      width: 100%;
+   }
+
+   .navbar  label  {
+      display: block;
+      cursor: pointer;
+   }
+
+
+   .navbar .container .nav-menu {
+      position: absolute;
+      z-index: 999;
+      top: 100%;
+      left: 0;
+      flex-direction: column;
+      background-color: #fff;
+      width: 100%;
+      text-align: center;
+      height: 100vh;
+      clip-path: circle(0% at 50% 50%);
+      transition: clip-path .5s ;
+   }
+
+   .navbar .container .nav-menu li a {
+      background-color: #333;
+      display: block;
+      padding: 10px 0;
+   }
+
+   .navbar  #menu:checked ~ .nav-menu {
+      clip-path: circle(70.7% at 50% 50%);
+
+   }
+
+
+}
+@media (max-width:575.98px) {
+
+}
+
+/* <!-- =================== End Media ===================--> */
